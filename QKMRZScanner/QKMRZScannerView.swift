@@ -281,7 +281,7 @@ extension QKMRZScannerView: AVCaptureVideoDataOutputSampleBufferDelegate {
                     
                     DispatchQueue.main.async {
                         let enlargedDocumentImage = self.enlargedDocumentImage(from: cgImage)
-                        let scanResult = QKMRZScanResult(mrzResult: mrzResult, documentImage: enlargedDocumentImage)
+                        let scanResult = QKMRZScanResult(mrzResult: mrzResult, documentImage: enlargedDocumentImage, originalImage: UIImage(cgImage: documentImage))
                         self.delegate?.mrzScannerView(self, didFind: scanResult)
                         if self.vibrateOnResult {
                             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
